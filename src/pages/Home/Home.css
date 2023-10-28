@@ -1,0 +1,40 @@
+body {
+    font-family: "Futura",sans-serif;
+    font-size: 16px;
+    color: #333333;
+    margin: 0;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+    background-color: #fff;
+    display: block;
+};
+
+*, ::after, ::before {
+    box-sizing: border-box;
+};
+
+div {
+    display: block;
+};
+
+.topbar {
+    margin-left: auto;
+    background: #f5f5f5dc;
+    padding: 5px 0;
+};
+
+.topbar .topbar-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+};
+
+.topbar .topbar-right .header-search-form {
+    position: relative;
+};
+
+form {
+    display: block;
+    margin-top: 0em;
+}
