@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Home.css";
 import { Link, useNavigate } from "react-router-dom";
+import Modal from "../Modal";
+import Login from "../Login_Register/Login";
 
 const Header = () => {
   const navigate = new useNavigate();
-
+  const [handleModal, setHandleModal] = useState(false)
+  const [login, setLogin] = useState(true)
   return (
     <>
       <div>
@@ -18,7 +21,7 @@ const Header = () => {
       </div>
       <ul>
         <li>
-          <Link to='/login'>ĐĂNG NHẬP</Link>
+          <a onClick={() => setHandleModal(!handleModal)}>ĐĂNG NHẬP</a>
         </li>
       </ul>
       <div className="cart">
@@ -85,7 +88,119 @@ const Header = () => {
     </div>
   </header>
 </div>
+    <Modal handleModal={handleModal} setHandleModal={setHandleModal}>
+      <a style={{
+        color: 'red',
+        fontSize: '24px',
+        display: 'inline-flex',
+        width: '100%',
+        height: '100%',
+        justifyContent: 'end'
+      }} onClick={() => setHandleModal(!handleModal)}>X</a>
+      {login ? 
+        <div>
+          <div className="login">
+            <h1>Đăng nhập</h1>
+            <p>Vui lòng nhập thông tin tài khoản</p>
+            <hr />
+            <label htmlFor="username">
+              <b>Tên đăng nhập</b>
+            </label>
+            <input
+              // onChange={(event) => setUserName(event.target.value)}
+              type="text"
+              placeholder="Mời nhập tên tài khoản"
+              name="username"
+              id="username"
+            />
 
+            <label htmlFor="password">
+              <b>Mật khẩu</b>
+            </label>
+            <input
+              // onChange={(event) => setPassword(event.target.value)}
+              type="password"
+              placeholder="******"
+              name="password"
+              id="password"
+            />
+
+            <hr />
+            <button
+            // onClick={handleLogin}
+            type="submit" className="submit">
+              Đăng nhập
+            </button>
+          </div>
+          <div className="register-login">
+            <p>
+              Bạn chưa có tài khoản? <a onClick={() => setLogin(!login)} >Đăng ký</a>.
+            </p>
+          </div>
+        </div>
+        :
+        <div>
+      <div className="register">
+        <h1>Đăng ký</h1>
+        <p>Vui lòng điền thông tin để đăng ký</p>
+        <hr />
+
+        <label htmlFor="username">
+          <b>Tên đăng nhập</b>
+        </label>
+        <input
+          // value={userName}
+          // onChange={(event) => setUserName(event.target.value)}
+          type="text"
+          placeholder="Mời nhập tên tài khoản"
+          name="username"
+          id="username"
+        />
+
+        <label htmlFor="password">
+          <b>Mật khẩu</b>
+        </label>
+        <input
+          // value={password}
+          // onChange={(event) => setPassword(event.target.value)}
+          type="password"
+          placeholder="******"
+          name="password"
+          id="password"
+        />
+
+        <label htmlFor="password-repeat">
+          <b>Nhập lại mật khẩu</b>
+        </label>
+        <input
+          // value={password2}
+          // onChange={(event) => setPassword2(event.target.value)}
+          type="password"
+          placeholder="******"
+          name="password-repeat"
+          id="password-repeat"
+        />
+
+        <hr />
+        <p>
+          Để tạo tài khoản vui lòng đồng ý với điều khoản của chúng tôi{" "}
+          <a href="#">Terms &amp; Privacy</a>.
+        </p>
+
+        <button
+        // onClick={handleAddUser}
+        type="submit" className="submit">
+          Đăng ký
+        </button>
+      </div>
+      <div className="register-login">
+        <p>
+          Bạn đã có tài khoản rồi? <a onClick={() => setLogin(!login)} >Đăng nhập</a>.
+        </p>
+      </div>
+    </div>
+      }
+    </Modal>
     </>
   );
 };

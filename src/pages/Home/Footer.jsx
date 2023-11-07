@@ -17,25 +17,25 @@ const Footer = () => {
         <li>
           <a href>
             <i className="fa-solid fa-location-dot" />
-            <span>CS1 - Thái Nguyên: 235 Quang Trung, TP Thái Nguyên</span>
+            <span>CS2 - Thái Nguyên: 599 Lương Ngọc Quyến, TP Thái Nguyên</span>
           </a>
         </li>
         <li>
           <a href>
             <i className="fa-solid fa-location-dot" />
-            <span>CS1 - Thái Nguyên: 235 Quang Trung, TP Thái Nguyên</span>
+            <span>CS3 - Thái Bình: 161 Hai Bà Trưng, TP Thái Bình</span>
           </a>
         </li>
         <li>
           <a href>
             <i className="fa-solid fa-location-dot" />
-            <span>CS1 - Thái Nguyên: 235 Quang Trung, TP Thái Nguyên</span>
+            <span>CS4 - Vĩnh Phúc: 06 Mê Linh, TP Vĩnh Yên</span>
           </a>
         </li>
         <li>
           <a href>
             <i className="fa-solid fa-location-dot" />
-            <span>CS1 - Thái Nguyên: 235 Quang Trung, TP Thái Nguyên</span>
+            <span>CS5 - Hải Dương: 09 Nguyễn Thị Duệ, TP Chí Linh</span>
           </a>
         </li>
       </ul>
@@ -43,7 +43,7 @@ const Footer = () => {
     <div className="center">
       <h3>ĐĂNG KÝ</h3>
       <div className="center-email">
-        <input type="text" placeholder="Nhập địa chỉ email" />
+        <input style={{margin:'0px'}} type="text" placeholder="Nhập địa chỉ email" />
         <div className="send">
           <i className="fa-solid fa-paper-plane" />
         </div>

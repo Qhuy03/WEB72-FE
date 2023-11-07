@@ -1,52 +1,54 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './Home.css';
 
 
 const Slide = () => {
 
-let slider = document.querySelector('.slider .list');
-let items = document.querySelectorAll('.slider .list .item');
-let next = document.getElementById('next');
-let prev = document.getElementById('prev');
-let dots = document.querySelectorAll('.slider .dots li');
 
-let lengthItems = items.length - 1;
-let active = 0;
+useEffect(() => {
+  let slider = document.querySelector('.slider .list');
+  let items = document.querySelectorAll('.slider .list .item');
+  let next = document.getElementById('next');
+  let prev = document.getElementById('prev');
+  let dots = document.querySelectorAll('.slider .dots li');
+  
+  let lengthItems = items.length - 1;
+  let active = 0;
+  
+  next.onclick = function(){
+      active = active + 1 <= lengthItems ? active + 1 : 0;
+      reloadSlider();
+  }
+  prev.onclick = function(){
+      active = active - 1 >= 0 ? active - 1 : lengthItems;
+      reloadSlider();
+  }
+  let refreshInterval = setInterval(()=> {next.click()}, 3000);
+  function reloadSlider(){
+      slider.style.left = -items[active].offsetLeft + 'px';
+      // 
+      let last_active_dot = document.querySelector('.slider .dots li.active');
+      last_active_dot?.classList.remove('active');
+      dots[active]?.classList.add('active');
+  
+      clearInterval(refreshInterval);
+      refreshInterval = setInterval(()=> {next.click()}, 3000);
+  
+      
+  }
+  
+  dots.forEach((li, key) => {
+      li.addEventListener('click', ()=>{
+           active = key;
+           reloadSlider();
+      })
+  })
+  window.onresize = function(event) {
+      reloadSlider();
+  };
 
-// next.onclick = function(){
-//     active = active + 1 <= lengthItems ? active + 1 : 0;
-//     reloadSlider();
-// }
-// prev.onclick = function(){
-//     active = active - 1 >= 0 ? active - 1 : lengthItems;
-//     reloadSlider();
-// }
-// let refreshInterval = setInterval(()=> {next.click()}, 3000);
-// function reloadSlider(){
-//     slider.style.left = -items[active].offsetLeft + 'px';
-//     // 
-//     let last_active_dot = document.querySelector('.slider .dots li.active');
-//     last_active_dot.classList.remove('active');
-//     dots[active].classList.add('active');
-
-//     clearInterval(refreshInterval);
-//     refreshInterval = setInterval(()=> {next.click()}, 3000);
-
-    
-// }
-
-// dots.forEach((li, key) => {
-//     li.addEventListener('click', ()=>{
-//          active = key;
-//          reloadSlider();
-//     })
-// })
-// window.onresize = function(event) {
-//     reloadSlider();
-// };
-
-
-
+  
+}, [])
 
     return(
         <>
@@ -54,19 +56,19 @@ let active = 0;
   <div className="slider">
     <div className="list">
       <div className="item">
-        <img src="/img/slide_1.webp" alt="" />
+        <img src="https://bizweb.dktcdn.net/100/415/697/themes/902041/assets/slider_1.jpg?1692958575148" alt="" />
       </div>
       <div className="item">
-        <img src="/img/slide_2.webp" alt="" />
+        <img src="https://bizweb.dktcdn.net/100/415/697/themes/902041/assets/slider_2.jpg?1692958575148" alt="" />
       </div>
       <div className="item">
-        <img src="/img/slide_3.webp" alt="" />
+        <img src="https://bizweb.dktcdn.net/100/415/697/themes/902041/assets/slider_3.jpg?1692958575148" alt="" />
       </div>
       <div className="item">
-        <img src="/img/slide_4.webp" alt="" />
+        <img src="https://bizweb.dktcdn.net/100/415/697/themes/902041/assets/slider_4.jpg?1692958575148" alt="" />
       </div>
       <div className="item">
-        <img src="/img/slide_5.webp" alt="" />
+        <img src="https://bizweb.dktcdn.net/100/415/697/themes/902041/assets/slider_5.jpg?1692958575148" alt="" />
       </div>
     </div>
     <div className="buttons">

@@ -281,3 +281,23 @@ footer .right {
     position: relative;
     font-family: 'Open Sans',sans-serif;
 }
+
+
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    padding: 24px;
+    background: white;
+}
