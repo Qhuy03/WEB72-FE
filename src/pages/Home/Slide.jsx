@@ -72,10 +72,10 @@ useEffect(() => {
       </div>
     </div>
     <div className="buttons">
-      <button id="prev"> &lt; </button>
-      <button id="next">&gt;</button>
+      <button style={{cursor: 'pointer'}} id="prev"> &lt; </button>
+      <button style={{cursor: 'pointer'}} id="next">&gt;</button>
     </div>
-    <ul className="dots">
+    <ul style={{cursor: 'pointer'}} className="dots">
       <li className="active" />
       <li />
       <li />

@@ -44,7 +44,7 @@ const Footer = () => {
       <h3>ĐĂNG KÝ</h3>
       <div className="center-email">
         <input style={{margin:'0px'}} type="text" placeholder="Nhập địa chỉ email" />
-        <div className="send">
+        <div style={{cursor: 'pointer'}} className="send">
           <i className="fa-solid fa-paper-plane" />
         </div>
       </div>
