@@ -218,6 +218,16 @@ const Header = () => {
                 <b>Tên đăng nhập</b>
               </label>
               <input
+              style={{
+                width: '100%',
+                padding: '15px',
+                margin: '20px 0 22px 0',
+                display: 'inline-block',
+                border: 'none',
+                background: '#ffffff',
+                backgroundColor: '#ddd',
+                outline: 'none'
+              }}
                 onChange={(event) => setUserName(event.target.value)}
                 type="text"
                 placeholder="Mời nhập tên tài khoản"
@@ -229,6 +239,16 @@ const Header = () => {
                 <b>Mật khẩu</b>
               </label>
               <input
+              style={{
+                width: '100%',
+                padding: '15px',
+                margin: '20px 0 22px 0',
+                display: 'inline-block',
+                border: 'none',
+                background: '#ffffff',
+                backgroundColor: '#ddd',
+                outline: 'none'
+              }}
                 onChange={(event) => setPassword(event.target.value)}
                 type="password"
                 placeholder="******"
@@ -265,6 +285,16 @@ const Header = () => {
                 <b>Tên đăng nhập</b>
               </label>
               <input
+              style={{
+                width: '100%',
+                padding: '15px',
+                margin: '20px 0 22px 0',
+                display: 'inline-block',
+                border: 'none',
+                background: '#ffffff',
+                backgroundColor: '#ddd',
+                outline: 'none'
+              }}
                 value={userNameRegister}
                 onChange={(event) => setUserNameRegister(event.target.value)}
                 type="text"
@@ -277,6 +307,16 @@ const Header = () => {
                 <b>Mật khẩu</b>
               </label>
               <input
+              style={{
+                width: '100%',
+                padding: '15px',
+                margin: '20px 0 22px 0',
+                display: 'inline-block',
+                border: 'none',
+                background: '#ffffff',
+                backgroundColor: '#ddd',
+                outline: 'none'
+              }}
                 value={passwordRegister}
                 onChange={(event) => setPasswordRegister(event.target.value)}
                 type="password"
@@ -289,6 +329,16 @@ const Header = () => {
                 <b>Nhập lại mật khẩu</b>
               </label>
               <input
+              style={{
+                width: '100%',
+                padding: '15px',
+                margin: '20px 0 22px 0',
+                display: 'inline-block',
+                border: 'none',
+                background: '#ffffff',
+                backgroundColor: '#ddd',
+                outline: 'none'
+              }}
                 value={checkPasswordRegister}
                 onChange={(event) => setCheckPasswordRegister(event.target.value)}
                 type="password"
