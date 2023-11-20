@@ -321,3 +321,48 @@ a:visited {
 a:hover {
     color: red;
 }
+
+@media screen and (max-width: 600px) {
+    .ant-form {
+      /* Adjust the form layout for smaller screens */
+      width: 100%;
+      padding: 0 10px;
+    }
+    /* Additional responsive styling for form elements */
+  }
+
+
+  /* Media query for tablets */
+  @media screen and (max-width: 768px) {
+    .container {
+      padding: 0 20px; /* Adjust padding for smaller screens */
+    }
+  
+    .form-search input {
+      width: 100%; /* Make search input full width on smaller screens */
+    }
+  
+    .topbar .cart {
+      font-size: 28px; /* Reduce cart icon size for smaller screens */
+    }
+  
+    header .container {
+      flex-direction: column; /* Stack header items vertically on smaller screens */
+    }
+  
+    header .menu ul {
+      flex-wrap: wrap; /* Allow menu items to wrap on smaller screens */
+    }
+  
+    header .menu a {
+      font-size: 14px; /* Adjust menu item font size for smaller screens */
+      padding: 5px 0; /* Add padding to menu items for better spacing */
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    .container {
+      max-width: 1200px; /* Adjust container max-width for larger screens */
+    }
+  
+    /* Add other styles for larger screens */
+  }

@@ -2,8 +2,25 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Button, Form, Input, InputNumber } from 'antd';
 
+const axiosInstance = axios.create({
+  baseURL: 'http://localhost:8000/',
+
+})
+
+axiosInstance.interceptors.request.use((config) => {
+  const {accessToken} = JSON.parse(localStorage.getItem("user"));
+  
+  console.log(accessToken)
+  if (accessToken) {
+      config.headers.Authorization = `Bearer ${accessToken}`
+  }
+  return config;
+}
+)
+
+
 const Profile = () => {
-  const [update, setupdate] = useState(true);
+  
   // const email = JSON.parse(localStorage.getItem("user"));
 
   // const [user, setUser] =useState([]);
@@ -93,7 +110,7 @@ const [user, setUser] = useState({}); // Sử dụng useState để lưu thông 
 
         setUser(userData);
         form.setFieldsValue({
-          username: userData.username,
+          userName: userData.userName,
           birth_year: userData.birth_year,
           email: userData.email,
           phone: userData.phone,
@@ -105,6 +122,38 @@ const [user, setUser] = useState({}); // Sử dụng useState để lưu thông 
       });
   }, [form]);
   
+
+  //PUT
+  // const handleUpdate = (values) => {
+  //   const { username, email, birth_year, phone } = values; // Extract values from the form
+    
+  //   const { id } = JSON.parse(localStorage.getItem("user")); // Get the user ID from localStorage
+  
+  //   const updatedUserData = {
+  //     username,
+  //     email,
+  //     birth_year,
+  //     phone,
+  //     // Include other fields if needed
+  //   };
+  
+  //   axios
+  //     .put(`http://localhost:8000/user/${id}`, updatedUserData)
+  //     .then((response) => {
+  //       console.log("User data updated successfully:", response.data);
+  //       // Handle success, update state or perform other actions upon successful update
+  //       alert('Update thành công!')
+  //       const token = localStorage.getItem('token');
+  //   console.log(token)
+  //   if (token) {
+  //       response.headers.Authorization = `Bearer ${token}`}
+  //       return response;
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error updating user data:", error);
+  //       // Handle error cases upon unsuccessful update
+  //     });
+  // };
 
 
   const layout = {
@@ -131,6 +180,29 @@ const validateMessages = {
 
 const onFinish = (values) => {
   console.log(values);
+  const { userName, email, birth_year, phone } = values; // Extract values from the form
+  
+  const { id } = JSON.parse(localStorage.getItem("user")); // Get the user ID from localStorage
+
+  const updatedUserData = {
+    userName,
+    email,
+    birth_year,
+    phone,
+    // Include other fields if needed
+  };
+
+  axios
+    .put(`http://localhost:8000/user/${id}`, updatedUserData)
+    .then((response) => {
+      console.log("User data updated successfully:", response.data);
+      // Handle success, update state or perform other actions
+      alert("Update thành công!")
+    })
+    .catch((error) => {
+      console.error("Error updating user data:", error);
+      // Handle error
+    });
 };
 
 
@@ -153,7 +225,7 @@ const onFinish = (values) => {
     validateMessages={validateMessages}
   >
     <Form.Item
-      name='username'
+      name='userName'
       label="Name"
       rules={[
         {
@@ -200,7 +272,7 @@ const onFinish = (values) => {
       }}
     >
       <Button type="primary" htmlType="submit">
-        Submit
+        Update
       </Button>
     </Form.Item>
   </Form>

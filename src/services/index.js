@@ -6,12 +6,13 @@ const axiosInstance = axios.create({
 })
 
 axiosInstance.interceptors.request.use((config) => {
-    const token = localStorage.getItem('token');
-    console.log(token)
-    if (token) {
-        config.headers.Authorization = `Bearer ${token}`
-    }
-    return config;
+    const {accessToken} = JSON.parse(localStorage.getItem("user"));
+  
+  console.log(accessToken)
+  if (accessToken) {
+      config.headers.Authorization = `Bearer ${accessToken}`
+  }
+  return config;
 }
 )
 
@@ -39,8 +40,8 @@ const deleteProduct = (id) => {
     return axiosInstance.delete(`/products/${id}`);
 }
 
-const getUserById = (userId) => {
-    return axiosInstance.get(`/user/${userId}`)
+const getUserById = () => {
+    return axiosInstance.put(`/user`)
 }
 
 export {
