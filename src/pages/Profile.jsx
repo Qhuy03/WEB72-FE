@@ -182,7 +182,7 @@ const onFinish = (values) => {
   console.log(values);
   const { userName, email, birth_year, phone } = values; // Extract values from the form
   
-  const { id } = JSON.parse(localStorage.getItem("user")); // Get the user ID from localStorage
+  const { id, accessToken } = JSON.parse(localStorage.getItem("user")); // Get the user ID from localStorage
 
   const updatedUserData = {
     userName,
@@ -193,7 +193,11 @@ const onFinish = (values) => {
   };
 
   axios
-    .put(`http://localhost:8000/user/${id}`, updatedUserData)
+    .put(`http://localhost:8000/user/${id}`, updatedUserData,{
+      headers: {
+        Authorization: 'Bearer ' + accessToken
+      }
+    })
     .then((response) => {
       console.log("User data updated successfully:", response.data);
       // Handle success, update state or perform other actions
