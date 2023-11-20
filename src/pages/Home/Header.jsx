@@ -117,7 +117,7 @@ const Header = () => {
                 </>
               ) : (
                 <li>
-                  <a
+                  <a className="login-header-hover"
                     style={{ cursor: "pointer" }}
                     onClick={() => setHandleModal(!handleModal)}
                   >
@@ -194,6 +194,7 @@ const Header = () => {
         </header>
       </div>
       <Modal handleModal={handleModal} setHandleModal={setHandleModal}>
+        
         <a
           style={{
             color: "red",
@@ -208,10 +209,12 @@ const Header = () => {
         >
           X
         </a>
+        <div style={{display:'flex', justifyContent: "center"}}><img  src="https://bizweb.dktcdn.net/100/415/697/themes/902041/assets/logo.png?1692958575148" alt="" /></div>
         {login ? (
           <div>
             <div className="login">
-              <h1>Đăng nhập</h1>
+              <h1 style={{marginBottom: '10px'}}>Đăng nhập</h1>
+              
               <p>Vui lòng nhập thông tin tài khoản</p>
               <hr />
               <label htmlFor="username">
@@ -221,7 +224,7 @@ const Header = () => {
               style={{
                 width: '100%',
                 padding: '15px',
-                margin: '20px 0 22px 0',
+                margin: '10px 0 22px 0',
                 display: 'inline-block',
                 border: 'none',
                 background: '#ffffff',
@@ -242,7 +245,7 @@ const Header = () => {
               style={{
                 width: '100%',
                 padding: '15px',
-                margin: '20px 0 22px 0',
+                margin: '10px 0 22px 0',
                 display: 'inline-block',
                 border: 'none',
                 background: '#ffffff',
@@ -277,7 +280,7 @@ const Header = () => {
         ) : (
           <div>
             <div className="register">
-              <h1>Đăng ký</h1>
+              <h1 style={{marginBottom: '10px'}}>Đăng ký</h1>
               <p>Vui lòng điền thông tin để đăng ký</p>
               <hr />
 
@@ -288,7 +291,7 @@ const Header = () => {
               style={{
                 width: '100%',
                 padding: '15px',
-                margin: '20px 0 22px 0',
+                margin: '10px 0 22px 0',
                 display: 'inline-block',
                 border: 'none',
                 background: '#ffffff',
@@ -310,7 +313,7 @@ const Header = () => {
               style={{
                 width: '100%',
                 padding: '15px',
-                margin: '20px 0 22px 0',
+                margin: '10px 0 22px 0',
                 display: 'inline-block',
                 border: 'none',
                 background: '#ffffff',
@@ -332,7 +335,7 @@ const Header = () => {
               style={{
                 width: '100%',
                 padding: '15px',
-                margin: '20px 0 22px 0',
+                margin: '10px 0 22px 0',
                 display: 'inline-block',
                 border: 'none',
                 background: '#ffffff',

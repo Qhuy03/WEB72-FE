@@ -39,11 +39,16 @@ const deleteProduct = (id) => {
     return axiosInstance.delete(`/products/${id}`);
 }
 
+const getUserById = (userId) => {
+    return axiosInstance.get(`/user/${userId}`)
+}
+
 export {
     login,
     createProduct,
     getProduct,
     getProductById,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    getUserById
 }
